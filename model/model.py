@@ -66,7 +66,7 @@ class Model:
         start_node = self._idMapP[int(start)]
         end_node = self._idMapP[int(end)]
         parziale = [start_node]
-        self._ricorsione(parziale,lun,end)
+        self._ricorsione(parziale,int(lun),end_node)
         return self._bestPath,self._bestScore
 
     def _ricorsione(self,parziale,lun,end):
@@ -85,5 +85,5 @@ class Model:
     def _getScore(self,parziale):
         score = 0
         for i in range(0,len(parziale)-1):
-            score += self._graph[parziale[i]][parziale[i+1]]["weight"]
+            score += int(self._graph[parziale[i]][parziale[i+1]]["weight"])
         return score
